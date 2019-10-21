@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": false,
   "homepage": "http://eesa1980.github.io/lewisjamesodwin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eesa1980/lewisjamesodwin.git"
+  },
   "dependencies": {
     "canvas-sketch-util": "^1.10.0",
     "gsap": "^2.1.3",
