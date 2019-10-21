@@ -1,19 +1,29 @@
-import { random } from 'canvas-sketch-util';
 import React from 'react';
+import random from 'canvas-sketch-util/random';
+import styled from 'styled-components';
 import { Canvas, useFrame, useThree } from 'react-three-fiber';
 import { TweenLite } from 'gsap/TweenLite';
+import { pallete } from './constant';
+
+const CanvasWrapper = styled(Canvas)`
+  height: 100vh !important;
+  width: 100vw !important;
+  position: absolute !important;
+
+  canvas {
+    height: 100vh !important;
+    width: 100vw !important;
+    margin: auto;
+    z-index: 0;
+    opacity: 0.8;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+`;
 
 const FloatingSquares = ({ page }) => {
   random.setSeed(9);
-
-  const canvasStyles = {
-    height: '100vh',
-    width: '100vw',
-    position: 'absolute'
-  };
-
-  // Colors
-  const pallete = ['#00897B', '#00564D', '#282828', '#363636', '#969696'];
 
   // The object of items on screen
   const items = amount => {
@@ -41,7 +51,7 @@ const FloatingSquares = ({ page }) => {
         random.noise3D(u, v * 2, w, 2, 4),
         random.noise3D(u, v, w * 2, 2, 4)
       ],
-      color: random.pick(pallete),
+      color: random.pick(pallete.slice(0, 4)),
       active: false,
       scale: [0.05, 0.05, 0.05],
       rotation: [0, 0, 0]
@@ -103,9 +113,9 @@ const FloatingSquares = ({ page }) => {
   };
 
   return (
-    <Canvas style={canvasStyles}>
+    <CanvasWrapper>
       <Scene />
-    </Canvas>
+    </CanvasWrapper>
   );
 };
 

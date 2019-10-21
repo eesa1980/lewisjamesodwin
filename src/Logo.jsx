@@ -1,23 +1,24 @@
 import React, { useRef } from 'react';
-import { useSpring, animated } from 'react-spring';
+// import { useSpring, animated } from 'react-spring';
 import styled from 'styled-components';
+import { pallete } from './constant';
 
 const Logo = props => {
   const svg = useRef();
 
-  const { opacity, transform } = useSpring({
-    from: {
-      opacity: 0,
-      transform: 'scale(0.1)'
-    },
-    to: {
-      opacity: 1,
-      transform: 'scale(1)'
-    },
-    config: { duration: 1000 }
-  });
+  // const { opacity, transform } = useSpring({
+  //   from: {
+  //     opacity: 0,
+  //     transform: 'scale(0.1)'
+  //   },
+  //   to: {
+  //     opacity: 1,
+  //     transform: 'scale(1)'
+  //   },
+  //   config: { duration: 1000 }
+  // });
 
-  const SvgImage = styled(animated.svg)`
+  const SvgImage = styled.svg`
     width: calc(100vw - 40px);
     max-width: 600px;
   `;
@@ -26,7 +27,7 @@ const Logo = props => {
     <SvgImage
       ref={svg}
       onClick={props.onClick}
-      style={{ opacity, transform }}
+      // style={{ opacity, transform }}
       width="100%"
       height="100%"
       viewBox="0 0 708 183"
@@ -34,19 +35,19 @@ const Logo = props => {
     >
       <g id="logo">
         <g id="rectangles">
-          <animated.rect
+          <rect
             id="rectangle-teal"
             y="56.3077"
             width="651.698"
             height="126.692"
-            fill={'#00897B'}
+            fill={pallete[3]}
           />
           <rect
             id="rectangle-light-grey"
             x="56.3022"
             width="651.698"
             height="126.692"
-            fill="#969696"
+            fill={pallete[4]}
           />
           <rect
             id="rectangle-dark-grey"
@@ -54,19 +55,19 @@ const Logo = props => {
             y="28.1538"
             width="651.698"
             height="126.692"
-            fill="#363636"
+            fill={pallete[1]}
           />
         </g>
         <g id="name">
           <path
             d="M101.234 102.212H117.927V110.757H90.0835V72.3202H101.234V102.212Z"
-            fill="white"
+            fill={pallete[5]}
           />
           <path
             d="M147.881 95.1842H132.772V102.212H150.685V110.757H121.622V72.3202H150.85V80.8983H132.772V86.6061H147.881V95.1842Z"
             fill="white"
           />
-          <animated.path
+          <path
             d="M185.885 94.5903L189.877 72.3202H200.434L192.054 110.757H180.706L176.186 90.9281L171.865 110.757H160.549L152.071 72.3202H162.727L166.652 94.5573L171.304 72.3202H181.102L185.885 94.5903Z"
             fill="white"
           />

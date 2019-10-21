@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900&display=swap');
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -21,9 +23,22 @@ html {
  */
 
 body {
-  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  background: #e7e7e7;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
   height: 100vh;
+  margin: 0;
+  max-height: 100vh !important;
+  overflow: hidden;
+  position: relative;
   width: 100vw;
+  word-break: break-word;
+}
+
+body * {
+  box-sizing: border-box;
 }
 
 /**
@@ -77,6 +92,15 @@ pre {
 
 a {
   background-color: transparent;
+  text-decoration: underline;
+  color: inherit;
+  cursor: pointer;
+}
+
+a:visited {
+  text-decoration: inherit;
+  color: inherit;
+  cursor: auto;
 }
 
 /**
