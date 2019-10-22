@@ -1,37 +1,44 @@
-import React, { useRef } from 'react';
-// import { useSpring, animated } from 'react-spring';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import { pallete } from './constant';
+import { TweenLite } from 'gsap/TweenLite';
 
-const Logo = props => {
-  const svg = useRef();
+const SvgImage = styled.svg`
+  width: calc(100vw - 40px);
+  max-width: 600px;
+`;
 
-  // const { opacity, transform } = useSpring({
-  //   from: {
-  //     opacity: 0,
-  //     transform: 'scale(0.1)'
-  //   },
-  //   to: {
-  //     opacity: 1,
-  //     transform: 'scale(1)'
-  //   },
-  //   config: { duration: 1000 }
-  // });
+const Logo = ({ page, currentPage }) => {
+  const ref = useRef();
 
-  const SvgImage = styled.svg`
-    width: calc(100vw - 40px);
-    max-width: 600px;
-  `;
+  const style = {
+    opacity: 0,
+    transform: `scale(${0})`
+  };
+
+  useEffect(() => {
+    const style = ref.current.style;
+    if (page === currentPage) {
+      TweenLite.to(style, 1, {
+        opacity: 1,
+        transform: `scale(${1})`
+      });
+    } else {
+      TweenLite.to(style, 1, {
+        opacity: 0,
+        transform: `scale(${0})`
+      });
+    }
+  }, [currentPage, page, ref]);
 
   return (
     <SvgImage
-      ref={svg}
-      onClick={props.onClick}
-      // style={{ opacity, transform }}
+      ref={ref}
       width="100%"
       height="100%"
       viewBox="0 0 708 183"
       fill="none"
+      style={style}
     >
       <g id="logo">
         <g id="rectangles">
