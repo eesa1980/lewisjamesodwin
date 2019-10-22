@@ -13,7 +13,8 @@ const Logo = ({ page, currentPage }) => {
 
   const style = {
     opacity: 0,
-    transform: `scale(${0})`
+    transform: `scale(${0})`,
+    zIndex: 0
   };
 
   useEffect(() => {
@@ -21,12 +22,14 @@ const Logo = ({ page, currentPage }) => {
     if (page === currentPage) {
       TweenLite.to(style, 1, {
         opacity: 1,
-        transform: `scale(${1})`
+        transform: `scale(${1})`,
+        zIndex: 1
       });
     } else {
       TweenLite.to(style, 1, {
         opacity: 0,
-        transform: `scale(${0})`
+        transform: `scale(${0})`,
+        zIndex: 0
       });
     }
   }, [currentPage, page, ref]);
