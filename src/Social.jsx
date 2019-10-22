@@ -9,12 +9,17 @@ const SocialIcons = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 4em;
   flex-wrap: wrap;
+  font-size: 3em;
+  text-align: center;
+
+  @media screen and (min-width: 700px) {
+    font-size: 4em;
+  }
 `;
 
 const SocialLink = styled.a`
-  margin: 10px;
+  margin: 0 10px;
   display: unset;
   transition: all 0.2s;
 

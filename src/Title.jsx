@@ -1,51 +1,44 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Title = styled.h1`
-  margin: 0 0 10px;
-  padding: 0;
-`;
-
 const TitleMain = styled.h1`
   margin: inherit;
   padding: inherit;
-  font-size: 1.25em;
-  font-variant-caps: all-small-caps;
-`;
+  margin: 0;
+  padding: 5px 40px;
+  text-transform: uppercase;
+  font-size: 2.3em;
+  text-align: center;
 
-const TitleSub = styled.h2`
-  margin: inherit;
-  padding: inherit;
-  font-size: 0.5em;
-  font-style: italic;
-  max-width: calc(100% - 40px);
-  margin: auto;
+  @media screen and (min-width: 700px) {
+    font-size: 2.7em;
+  }
 `;
 
 const Bold = styled.span`
   font-weight: 900;
+  display: block;
+
+  @media screen and (min-width: 500px) {
+    display: inline-block;
+  }
 `;
 
 const Light = styled.span`
   font-weight: 100;
+  display: block;
+
+  @media screen and (min-width: 500px) {
+    display: inline-block;
+  }
 `;
 
-const TitleEl = () => {
-  return (
-    <>
-      <Title className={'title'}>
-        <TitleMain>
-          <Bold>Lewis</Bold>
-          <Light>JamesOdwin</Light>
-        </TitleMain>
-        <TitleSub>
-          <Light>
-            #WebDeveloper #JavaScript #TypeScript #Web #Reactjs #Node
-          </Light>
-        </TitleSub>
-      </Title>
-    </>
-  );
-};
+const Title = () => (
+  <TitleMain>
+    <Bold>Lewis</Bold>
+    <Light>James</Light>
+    <Light>Odwin</Light>
+  </TitleMain>
+);
 
-export default TitleEl;
+export default Title;
