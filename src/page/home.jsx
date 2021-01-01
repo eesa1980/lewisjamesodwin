@@ -1,19 +1,33 @@
 import TitleEl from "../component/common/Title";
 import React from "react";
 import Layout from "../component/common/Layout";
-import useRouteUpdater from "../hooks/useRouterUpdater";
 import { route } from "../component/common/Routes";
+import styled from "styled-components";
+
+const Subtitle$ = styled.h2`
+  text-align: center;
+  font-variant-caps: all-small-caps;
+  padding: 0;
+  margin: 5px 0 0 0;
+  font-weight: normal;
+  letter-spacing: 2px;
+`;
 
 const Home = () => {
-  const routeUpdater = useRouteUpdater();
-
   return (
-    <div>
-      <Layout>
+    <>
+      <Layout
+        links={{
+          next: {
+            url: route.social,
+            title: "Social links",
+          },
+        }}
+      >
         <TitleEl />
-        <button onClick={() => routeUpdater(route.social)}>Social</button>
+        <Subtitle$>Javascript Web Developer</Subtitle$>
       </Layout>
-    </div>
+    </>
   );
 };
 

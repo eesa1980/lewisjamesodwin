@@ -1,16 +1,9 @@
-import React, {  useEffect, useMemo, useRef } from "react";
+import React, { useEffect, useMemo, useRef } from "react";
 import gsap from "gsap";
 import random from "canvas-sketch-util/random";
 import { useFrame } from "react-three-fiber";
 
-const MeshContainer = ({
-  ip,
-  index,
-  position,
-  scale,
-  color,
-  rotation,
-}) => {
+const MeshContainer = ({ ip, index, position, scale, color, rotation }) => {
   const mesh = useRef();
   const angle = Math.random() * Math.PI * 2;
   const item = useMemo(() => ip.getItems()[index], [index, ip]);

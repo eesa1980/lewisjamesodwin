@@ -5,7 +5,6 @@ import React from "react";
 import styled from "styled-components";
 import { pallete } from "./../constant";
 import Layout from "../component/common/Layout";
-import useRouteUpdater from "../hooks/useRouterUpdater";
 import { route } from "../component/common/Routes";
 
 const SocialIcons = styled.div`
@@ -32,10 +31,15 @@ const SocialLink = styled.a`
 `;
 
 const Social = () => {
-  const routeUpdater = useRouteUpdater();
-
   return (
-    <Layout>
+    <Layout
+      links={{
+        prev: {
+          url: route.home,
+          title: "Home page",
+        },
+      }}
+    >
       <SocialIcons>
         <SocialLink
           href={"https://www.linkedin.com/in/lewis-james-odwin-71b4a08a/"}
@@ -53,7 +57,6 @@ const Social = () => {
           <FontAwesomeIcon icon={faEnvelope} />
         </SocialLink>
       </SocialIcons>
-      <button onClick={() => routeUpdater(route.home)}>Link</button>
     </Layout>
   );
 };

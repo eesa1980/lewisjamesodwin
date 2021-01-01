@@ -1,5 +1,4 @@
 import React from "react";
-import "./App.css";
 import styled from "styled-components";
 import Routes from "./component/common/Routes";
 import FloatingSquares from "./floating-squares/FloatingSquares";
