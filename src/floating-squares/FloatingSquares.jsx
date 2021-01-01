@@ -1,12 +1,12 @@
-import React, {memo, useMemo} from 'react';
-import random from 'canvas-sketch-util/random';
-import styled from 'styled-components';
-import {Canvas, useFrame, useThree} from 'react-three-fiber';
-import gsap from 'gsap';
-import {ItemsProcessor} from "./SquaresProcessor";
+import React, { memo, useMemo } from "react";
+import random from "canvas-sketch-util/random";
+import styled from "styled-components";
+import { Canvas, useFrame, useThree } from "react-three-fiber";
+import gsap from "gsap";
+import { ItemsProcessor } from "./SquaresProcessor";
 import MeshContainer from "./MeshContainer";
 
-const Wrapper = styled(Canvas)`
+const Wrapper$ = styled(Canvas)`
   height: 100vh !important;
   width: 100vw !important;
   position: absolute !important;
@@ -25,47 +25,47 @@ const Wrapper = styled(Canvas)`
   }
 `;
 
-const Scene = ({page}) => {
-    const {scene} = useThree();
-    const ip = useMemo(() => new ItemsProcessor(100), []);
+const Scene = ({ pathname }) => {
+  const { scene } = useThree();
+  const ip = useMemo(() => new ItemsProcessor(100), []);
 
-    useFrame(state => {
-        gsap.to(
-            scene.rotation,
-            1,
-            {
-                y: state.mouse.x / 20,
-                x: -state.mouse.y / 20,
-            }
-        );
+  useFrame((state) => {
+    gsap.to(scene.rotation, {
+      duration: 1,
+      y: state.mouse.x / 20,
+      x: -state.mouse.y / 20,
     });
+  });
 
-    return (
-        <group>
-            {ip.getItems().map((item, key) => {
-                return <MeshContainer
-                    index={key}
-                    ip={ip}
-                    key={key}
-                    position={item.position}
-                    color={item.color}
-                    scale={item.scale}
-                    rotation={item.rotation}
-                />
-            })}
-        </group>
-    );
+  return (
+    <group>
+      {ip.getItems().map((item, key) => {
+        return (
+          <MeshContainer
+            pathname={pathname}
+            index={key}
+            ip={ip}
+            key={key}
+            position={item.position}
+            color={item.color}
+            scale={item.scale}
+            rotation={item.rotation}
+          />
+        );
+      })}
+    </group>
+  );
 };
 
-const FloatingSquares = ({page}) => {
-    const SceneMemo = memo(Scene);
-    random.setSeed(4);
+const FloatingSquares = () => {
+  const SceneMemo = memo(Scene);
+  random.setSeed(4);
 
-    return (
-        <Wrapper>
-            <SceneMemo page={page}/>
-        </Wrapper>
-    );
+  return (
+    <Wrapper$>
+      <SceneMemo />
+    </Wrapper$>
+  );
 };
 
 export default FloatingSquares;

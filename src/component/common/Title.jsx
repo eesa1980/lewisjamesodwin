@@ -1,11 +1,9 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const TitleMain = styled.h1`
-  margin: inherit;
-  padding: inherit;
   margin: 0;
-  padding: 5px 40px;
+  padding: 0;
   text-transform: uppercase;
   font-size: 2.3em;
   text-align: center;
